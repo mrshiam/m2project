@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd" layout="1column">   
+    <head>
+          <css src="Iconik_Buy::css/customcss.css" />
+          <css src="Iconik_Buy::css/bootstrap.min.css" />
+          <css src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" src_type="url"/>
+          <script src="Iconik_Buy::js/customjs.js" />
+          <script src="Iconik_Buy::js/bootstrap.bundle.min.js" />
+     </head> 
+    <body>   
+        <referenceContainer name="content">   
+            <container name="main.container" as="main_container" label="Main Container"  htmlTag="div" htmlClass="main_container" />
+        </referenceContainer>   
+
+        <referenceContainer name="main.container">
+            <block class="Magento\Framework\View\Element\Template" name="buyPlaces" template="Iconik_Buy::buy.phtml" />
+        </referenceContainer> 
+    </body>   
+</page>  

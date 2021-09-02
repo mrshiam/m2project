@@ -1,0 +1,78 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_width" xsi:type="number">80</argument>
+                <argument name="logo_height" xsi:type="number">20</argument>
+                <argument name="logo_alt" xsi:type="string">Logo name</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!-- Remove -->
+        <referenceBlock name="catalog.compare.nav" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="paypal.partner.right.logo" remove="true"/>
+        <referenceBlock name="minicart" remove="true"/>
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="header" remove="true"/>
+        <referenceBlock name="header.panel.wrapper" remove="true"/>
+        <referenceBlock name="header.panel" remove="true"/>
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="register-link" remove="true" />
+        <referenceBlock name="wish-list-link" remove="true" />
+        <referenceBlock name="authorization-link" remove="true" />
+        <referenceBlock name="my-account-link" remove="true" />
+
+        
+        
+        
+        
+
+        <!-- Header -->
+        <move element="catalog.topnav" destination="header-wrapper" after="logo"/>
+        <move element="top.search" destination="header-wrapper" before="catalog.topnav" />
+        
+        
+        
+
+        
+
+        <!-- Footer -->
+
+        <referenceBlock name="footer_links" remove="true"/>
+
+            <referenceContainer name="footer">
+                <container name="footer.containerwrapper" as="footer_containerwrapper" label="Page Footer Container wrapper"  htmlTag="div" htmlClass="footer-link-section" />
+                <container name="footer.subscribe" as="footer_subscribe" label="Page Footer Container subscribe"  htmlTag="div" htmlClass="footer-subscribe-section" />
+                <container name="footer.newsletter" as="footer_newsletter" label="Page Footer Container newsletter"  htmlTag="div" htmlClass="footer-newsletter-section" />
+            </referenceContainer>
+        
+
+       <referenceContainer name="footer.containerwrapper">
+           <block class="Magento\Framework\View\Element\Template" name="footer.custom" template="Magento_Theme::html/footer.phtml"  />
+       </referenceContainer>
+
+       <referenceContainer name="footer.subscribe">
+           <block class="Magento\Framework\View\Element\Template" name="footer.social" template="Magento_Theme::html/lastlinks.phtml"  />
+       </referenceContainer>
+
+
+
+
+       <!-- Move -->
+
+
+       <move element="form.subscribe" destination="footer.subscribe" after="-"/>
+       <move element="copyright" destination="footer.newsletter"/>
+        
+        
+        
+        
+
+
+       
+        
+    </body>
+</page>
