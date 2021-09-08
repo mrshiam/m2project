@@ -49,15 +49,15 @@ class LogData
     
 
     
-    public function aroundExecute(
-        \Magento\Customer\Controller\Account\CreatePost $subject, $proceed
+    public function afterExecute(
+        \Magento\Customer\Controller\Account\CreatePost $subject, $result
     )
     {
         $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/logfile.log');
          $logger = new \Zend\Log\Logger();
          $logger->addWriter($writer);
-         $logger->info('This is happening around submitting registration form');
-         
+         $logger->info('This is happening after submitting registration form');
+         return $result;
     }
 
     

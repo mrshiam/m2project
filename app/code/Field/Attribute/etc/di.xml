@@ -1,5 +1,11 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Customer\Controller\Account\CreatePost">
-        <plugin name="logData" type="Field\Attribute\Model\Plugin\Controller\Account\LogData"/>
+        <plugin name="logData" type="Field\Attribute\Model\Plugin\Controller\Account\LogData" sortOrder="10" disabled = "true"/>
     </type>
+    <type name="Magento\Customer\Model\ResourceModel\CustomerRepository">
+        <plugin name="UpdateNumber" type="Field\Attribute\Model\Plugin\Model\ResourceModel\UpdateNumber" sortOrder="20" disabled = "true"/>
+    </type>
+
+    <preference for="Magento\Customer\Controller\Account\CreatePost" type="Field\Attribute\Controller\Account\CreatePost" />
+    <preference for="Magento\Customer\Model\AccountManagement" type="Field\Attribute\Model\AccountManagement" />
 </config>
